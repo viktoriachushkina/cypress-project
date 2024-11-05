@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-11-05T17:37:22.633Z",
+    "end": "2024-11-05T17:37:30.334Z",
+    "duration": 7701,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "dd72143c-74ee-459d-975d-d4cef4f945e8",
+      "title": "",
+      "fullFile": "cypress/e2e/practice/qaauto.cy.js",
+      "file": "cypress/e2e/practice/qaauto.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0a576835-53a9-47a1-832b-9dc6b4ddcbd4",
+          "title": "Basic quarey ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login",
+              "fullTitle": "Basic quarey  Login",
+              "timedOut": null,
+              "duration": 6593,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('button', 'Sign In').click();\ncy.get('[data-test=\"username\"]').type('standard_user');\ncy.get('[placeholder=\"Password\"]').type('secret_sauce');\ncy.get('[data-test=\"login-button\"]').click();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-test=\"username\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-test=\"username\"]`, but never found it.\n    at Context.eval (webpack://cypress-project-1/./cypress/e2e/practice/qaauto.cy.js:9:5)",
+                "diff": null
+              },
+              "uuid": "e63fe3cb-8c47-4900-a038-3937031579b1",
+              "parentUUID": "0a576835-53a9-47a1-832b-9dc6b4ddcbd4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "e63fe3cb-8c47-4900-a038-3937031579b1"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 6593,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

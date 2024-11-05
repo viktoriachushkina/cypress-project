@@ -23,12 +23,24 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-Cypress.Commands.add('login', (email, password) => {
-    cy.visit('https://guest:welcome2qauto@qauto.forstudy.space/login');
+Cypress.Commands.add('login', () => {
+    require('cypress-xpath');
+    const email = Cypress.env('username');
+    const password = Cypress.env('password');
+    
+    const baseUrl = Cypress.config('baseUrl');
+    const authUrl = `https://guest:welcome2qauto@${new URL(baseUrl).host}`;
+
+    // Зайдем на страницу с аутентификацией
+    cy.visit(authUrl);
+
+    // Войдём в систему через UI
+    cy.contains('button', 'Sign In').click();
     cy.get('input[name="email"]').type(email);
     cy.get('input[name="password"]').type(password, { sensitive: true });
-    cy.get('button[type="submit"]').click();
+    cy.contains('button', 'Login').click();
 });
+
 Cypress.Commands.overwrite('type', (originalFn, element, text, options) => {
     if (options && options.sensitive) {
         options.log = false;

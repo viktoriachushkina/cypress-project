@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-11-03T20:41:34.723Z",
+    "end": "2024-11-03T20:41:34.987Z",
+    "duration": 264,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "76ed4f6a-c35d-49b4-89c8-c0641eb1fa45",
+      "title": "",
+      "fullFile": "cypress/e2e/reporters/garage.cy.js",
+      "file": "cypress/e2e/reporters/garage.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d3d19b63-7e3a-4bf5-9aaa-32871eeae387",
+          "title": "Garage Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should add a new car",
+              "fullTitle": "Garage Tests should add a new car",
+              "timedOut": null,
+              "duration": 208,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "garagePage.addCar({\n  brand: 'Toyota',\n  model: 'Corolla',\n  mileage: '15000'\n});\ncy.contains('Toyota Corolla').should('be.visible');",
+              "err": {
+                "message": "ReferenceError: email is not defined\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Garage Tests`",
+                "estack": "ReferenceError: email is not defined\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Garage Tests`\n    at GaragePage.navigateToGarage (webpack:///../e2e/page_objects/garagePage.js:5:39)\n    at Context.eval (webpack:///../e2e/reporters/garage.cy.js:6:15)",
+                "diff": null
+              },
+              "uuid": "6e7ba67e-0b69-44de-98e0-d7d1276adeb6",
+              "parentUUID": "d3d19b63-7e3a-4bf5-9aaa-32871eeae387",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "6e7ba67e-0b69-44de-98e0-d7d1276adeb6"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 208,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/qauto/.jsons",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

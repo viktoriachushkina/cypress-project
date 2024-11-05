@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-11-05T17:37:42.422Z",
+    "end": "2024-11-05T17:37:42.653Z",
+    "duration": 231,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4d18c36e-96df-4350-9984-39de1baa3376",
+      "title": "",
+      "fullFile": "cypress/e2e/reporters/garage.cy.js",
+      "file": "cypress/e2e/reporters/garage.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f0773fde-6ef5-435e-aa91-60f9b090da18",
+          "title": "Garage Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should add a new car",
+              "fullTitle": "Garage Tests should add a new car",
+              "timedOut": null,
+              "duration": 205,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "garagePage.addCar({\n  brand: 'Toyota',\n  model: 'Corolla',\n  mileage: '15000'\n});\ncy.contains('Toyota Corolla').should('be.visible');",
+              "err": {
+                "message": "ReferenceError: email is not defined\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Garage Tests`",
+                "estack": "ReferenceError: email is not defined\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Garage Tests`\n    at GaragePage.navigateToGarage (webpack://cypress-project-1/./cypress/e2e/page_objects/garagePage.js:5:39)\n    at Context.eval (webpack://cypress-project-1/./cypress/e2e/reporters/garage.cy.js:6:15)",
+                "diff": null
+              },
+              "uuid": "136ab46a-8d5f-472b-ba0c-9f822731fd58",
+              "parentUUID": "f0773fde-6ef5-435e-aa91-60f9b090da18",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "136ab46a-8d5f-472b-ba0c-9f822731fd58"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 205,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
