@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-11-05T17:35:46.758Z",
+    "end": "2024-11-05T17:35:48.801Z",
+    "duration": 2043,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "758ae5be-c0eb-4bcd-9289-151c8dfbb7b8",
+      "title": "",
+      "fullFile": "cypress/e2e/practice/basic.cy.js",
+      "file": "cypress/e2e/practice/basic.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "bdc6da79-64df-41a8-be53-02acd20858e2",
+          "title": "Basic",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Test login page loads",
+              "fullTitle": "Basic Test login page loads",
+              "timedOut": null,
+              "duration": 894,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// cy.get('#product-updates-button');\ncy.contains('Sign In');",
+              "err": {},
+              "uuid": "be676642-3611-4640-96f7-d68842fd8952",
+              "parentUUID": "bdc6da79-64df-41a8-be53-02acd20858e2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "be676642-3611-4640-96f7-d68842fd8952"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 894,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
