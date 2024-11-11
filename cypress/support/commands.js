@@ -23,12 +23,22 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-Cypress.Commands.add('login', (email, password) => {
-    cy.visit('https://guest:welcome2qauto@qauto.forstudy.space/login');
-    cy.get('input[name="email"]').type(email);
-    cy.get('input[name="password"]').type(password, { sensitive: true });
-    cy.get('button[type="submit"]').click();
-});
+// commands.js
+// commands.js
+Cypress.Commands.add('login', () => {
+    cy.visit('https://guest:welcome2qauto@qauto.forstudy.space/');
+    
+    cy.contains('button', 'Sign In').click();
+    cy.get('input[name="email"]').type('viktoriacuskina@gmail.com');
+    cy.get('input[name="password"]').type('Test123456789', { sensitive: true });
+    cy.contains('button', 'Login').click();
+  
+    // Проверка успешного логина (например, появление элемента профиля)
+    cy.get('#userNavDropdown').should('be.visible');
+  });
+  
+  
+
 Cypress.Commands.overwrite('type', (originalFn, element, text, options) => {
     if (options && options.sensitive) {
         options.log = false;

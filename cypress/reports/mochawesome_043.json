@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-11-11T19:10:10.186Z",
+    "end": "2024-11-11T19:10:11.579Z",
+    "duration": 1393,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "bdfe1825-bdd3-44a1-9955-0363b038b6b0",
+      "title": "",
+      "fullFile": "cypress/e2e/practice/request.cy.js",
+      "file": "cypress/e2e/practice/request.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ef674b62-accc-4d26-b591-b3d4ebaf00ef",
+          "title": "Request",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Request test",
+              "fullTitle": "Request Request test",
+              "timedOut": null,
+              "duration": 394,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('GET', 'https://jsonplaceholder.typicode.com/users').then(response => {\n  cy.log(JSON.stringify(response.body));\n});",
+              "err": {},
+              "uuid": "68fc9280-2770-4a5c-9876-2c2ca1be563d",
+              "parentUUID": "ef674b62-accc-4d26-b591-b3d4ebaf00ef",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Request test",
+              "fullTitle": "Request Request test",
+              "timedOut": null,
+              "duration": 190,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('GET', 'https://jsonplaceholder.typicode.com/users').its('body').should('have.length', 10);\ncy.request('GET', 'https://jsonplaceholder.typicode.com/users').its('status').should('eq', 200);",
+              "err": {},
+              "uuid": "0d9f0a4f-b939-4d3a-9ae3-17010ed61dbc",
+              "parentUUID": "ef674b62-accc-4d26-b591-b3d4ebaf00ef",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Request POST",
+              "fullTitle": "Request Request POST",
+              "timedOut": null,
+              "duration": 757,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const newPost = {\n  title: 'New',\n  body: 'bar',\n  userId: 1\n};\ncy.request('POST', 'https://jsonplaceholder.typicode.com/posts', newPost).as('postResponse').its('body.id').should('eq', 101);\ncy.get('@postResponse').its('body.title').should('eq', newPost.title);\ncy.get('@postResponse').its('body.body').should('eq', newPost.body);",
+              "err": {},
+              "uuid": "067deaa9-f12b-46ff-85d2-e2c730f06488",
+              "parentUUID": "ef674b62-accc-4d26-b591-b3d4ebaf00ef",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "68fc9280-2770-4a5c-9876-2c2ca1be563d",
+            "0d9f0a4f-b939-4d3a-9ae3-17010ed61dbc",
+            "067deaa9-f12b-46ff-85d2-e2c730f06488"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1341,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

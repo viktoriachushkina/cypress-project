@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-11-11T19:10:12.588Z",
+    "end": "2024-11-11T19:10:12.840Z",
+    "duration": 252,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4d2d4d86-aa72-4ec3-8a33-1e0b42f291d5",
+      "title": "",
+      "fullFile": "cypress/e2e/reporters/expenses.cy.js",
+      "file": "cypress/e2e/reporters/expenses.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5a93330e-2a95-4290-81f1-346e5f2d5362",
+          "title": "Expenses Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should add fuel expense",
+              "fullTitle": "Expenses Tests should add fuel expense",
+              "timedOut": null,
+              "duration": 188,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_expensesPage.default.addFuelExpense('50', '2.5');\n_expensesPage.default.verifyExpenseAdded('50');",
+              "err": {
+                "message": "ReferenceError: email is not defined\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Expenses Tests`",
+                "estack": "ReferenceError: email is not defined\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Expenses Tests`\n    at ExpensesPage.navigateToExpenses (webpack://cypress-project-1/./cypress/e2e/page_objects/expensesPage.js:5:43)\n    at Context.eval (webpack://cypress-project-1/./cypress/e2e/reporters/expenses.cy.js:6:17)",
+                "diff": null
+              },
+              "uuid": "f177f472-91b7-465b-8961-bda6a3d21d8a",
+              "parentUUID": "5a93330e-2a95-4290-81f1-346e5f2d5362",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "f177f472-91b7-465b-8961-bda6a3d21d8a"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 188,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

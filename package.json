@@ -3,13 +3,20 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:qauto": "cypress run --config-file cypress/config/qauto.config.js",
+    "test:qauto2": "cypress run --config-file cypress/config/qauto2.config.js",
+    "test:saucedemo": "cypress run --config-file cypress.config.js",
+    "test:saucedemo-problem-user": "cypress run --config-file cypress/config/cypress.test.config.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "cypress": "^13.15.0"
+    "cypress": "^13.15.0",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "cypress-plugin-api": "^2.11.2",
+    "cypress-xpath": "^2.0.1"
   }
 }

@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-11-11T19:09:35.693Z",
+    "end": "2024-11-11T19:09:36.473Z",
+    "duration": 780,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "827bfd1f-94b5-48ee-a267-f92c15ba1231",
+      "title": "",
+      "fullFile": "cypress/e2e/API/apiTests.cy.js",
+      "file": "cypress/e2e/API/apiTests.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0e603ba4-68cf-4328-86d0-5b3aa990cbce",
+          "title": "API Tests for Cars",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "GET cookies",
+              "fullTitle": "API Tests for Cars GET cookies",
+              "timedOut": null,
+              "duration": 756,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const userCreds = {\n  email: 'viktoriacuskina@gmail.com',\n  password: 'Test123456789',\n  remember: true\n};\ncy.request('POST', 'https://qauto.forstudy.space/api/auth/signin', userCreds).then(response => {\n  const headers = response.headers;\n  const cookies = headers['set-cookie'];\n  let sid = '';\n  if (cookies) {\n    for (const cookie of cookies) {\n      if (cookie.trim().startsWith('sid=')) {\n        sid = cookie.trim().split('=')[1].split(';')[0];\n        break;\n      }\n    }\n  }\n  cy.log(`SID: ${sid}`);\n  cy.setCookie('sid', sid);\n  it('GET Cars - Get list of car models', () => {\n    cy.request({\n      method: 'GET',\n      url: 'https://qauto.forstudy.space/api/cars',\n      headers: {}\n    }).then(response => {\n      expect(response.status).to.eq(200);\n      expect(response.body.status).to.eq('ok');\n      expect(response.body.data).to.be.an('array');\n    });\n  });\n  it('POST Car - Add a new car', () => {\n    const newCar = {\n      \"status\": \"ok\",\n      \"data\": [{\n        \"id\": 201105,\n        \"carBrandId\": 4,\n        \"carModelId\": 18,\n        \"initialMileage\": 6666,\n        \"updatedMileageAt\": \"2024-11-05T20:58:49.000Z\",\n        \"carCreatedAt\": \"2024-11-05T20:58:49.000Z\",\n        \"mileage\": 6666,\n        \"brand\": \"Porsche\",\n        \"model\": \"Panamera\",\n        \"logo\": \"porsche.png\"\n      }, {\n        \"id\": 201104,\n        \"carBrandId\": 2,\n        \"carModelId\": 8,\n        \"initialMileage\": 5555,\n        \"updatedMileageAt\": \"2024-11-05T20:58:40.000Z\",\n        \"carCreatedAt\": \"2024-11-05T20:58:40.000Z\",\n        \"mileage\": 5555,\n        \"brand\": \"BMW\",\n        \"model\": \"X5\",\n        \"logo\": \"bmw.png\"\n      }, {\n        \"id\": 201103,\n        \"carBrandId\": 1,\n        \"carModelId\": 1,\n        \"initialMileage\": 777,\n        \"updatedMileageAt\": \"2024-11-05T20:58:31.000Z\",\n        \"carCreatedAt\": \"2024-11-05T20:58:31.000Z\",\n        \"mileage\": 777,\n        \"brand\": \"Audi\",\n        \"model\": \"TT\",\n        \"logo\": \"audi.png\"\n      }]\n    };\n    cy.request({\n      method: 'POST',\n      url: 'https://qauto.forstudy.space/api/cars',\n      headers: {},\n      body: newCar\n    }).then(response => {\n      expect(response.status).to.eq(201);\n      expect(response.body.status).to.eq('ok');\n      expect(response.body.data).to.have.property('id');\n      expect(response.body.data).to.have.property('mileage', 100);\n      cy.wrap(response.body.data.id).as('newCarId');\n    });\n  });\n  it('DELETE Car - Delete a car', function () {\n    cy.get('@newCarId').then(carId => {\n      cy.request({\n        method: 'DELETE',\n        url: `https://qauto.forstudy.space/api/cars/${carId}`,\n        headers: {}\n      }).then(response => {\n        expect(response.status).to.eq(200);\n        expect(response.body.status).to.eq('ok');\n      });\n    });\n  });\n});",
+              "err": {},
+              "uuid": "70256e7e-d2e4-49d7-ad73-bebcccfebf17",
+              "parentUUID": "0e603ba4-68cf-4328-86d0-5b3aa990cbce",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "70256e7e-d2e4-49d7-ad73-bebcccfebf17"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 756,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
