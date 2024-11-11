@@ -1,6 +1,10 @@
 class ExpensesPage {
     navigateToExpenses() {
-      cy.visit('/expenses');
+        cy.visit('https://guest:welcome2qauto@qauto.forstudy.space/');
+        cy.contains('button', 'Sign In').click()
+        cy.get('input[name="email"]').type(email);
+        cy.get('input[name="password"]').type(password, { sensitive: true });
+        cy.contains('button', 'Login').click()
     }
   
     addFuelExpense(amount, price) {

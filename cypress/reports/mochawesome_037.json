@@ -1,0 +1,129 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-11-11T19:09:39.553Z",
+    "end": "2024-11-11T19:09:40.538Z",
+    "duration": 985,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1f4d22dc-abe5-4d91-9be3-067b201165f6",
+      "title": "",
+      "fullFile": "cypress/e2e/API/pluginApiTests.cy.js",
+      "file": "cypress/e2e/API/pluginApiTests.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "56be92b5-fb0f-405d-904d-e805bc81324d",
+          "title": "API Tests for Cars",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "GET API testing Using Cypress API Plugin",
+              "fullTitle": "API Tests for Cars GET API testing Using Cypress API Plugin",
+              "timedOut": null,
+              "duration": 563,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.api({\n  method: \"GET\",\n  url: \"https://qauto.forstudy.space/api/cars\",\n  failOnStatusCode: false\n}).should(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body.status).to.eq('ok');\n  expect(response.body.data).to.be.an('array');\n});",
+              "err": {},
+              "uuid": "886d467d-b521-4de8-96cb-560111b9ae5c",
+              "parentUUID": "56be92b5-fb0f-405d-904d-e805bc81324d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "POST API testing - Add multiple cars",
+              "fullTitle": "API Tests for Cars POST API testing - Add multiple cars",
+              "timedOut": null,
+              "duration": 356,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const cars = [{\n  carBrandId: 4,\n  carModelId: 18,\n  initialMileage: 6666,\n  mileage: 6666,\n  brand: \"Porsche\",\n  model: \"Panamera\",\n  logo: \"porsche.png\"\n}, {\n  carBrandId: 2,\n  carModelId: 8,\n  initialMileage: 5555,\n  mileage: 5555,\n  brand: \"BMW\",\n  model: \"X5\",\n  logo: \"bmw.png\"\n}, {\n  carBrandId: 1,\n  carModelId: 1,\n  initialMileage: 777,\n  mileage: 777,\n  brand: \"Audi\",\n  model: \"TT\",\n  logo: \"audi.png\"\n}];\ncars.forEach(car => {\n  cy.request({\n    method: \"POST\",\n    url: \"https://qauto.forstudy.space/api/cars\",\n    headers: {},\n    body: car\n  }).then(response => {\n    expect(response.status).to.eq(201); // Проверка, что автомобиль успешно добавлен\n    expect(response.body.status).to.eq('ok');\n    expect(response.body.data).to.have.property('id'); // Убедиться, что создан объект с ID\n    cy.log(`Added car ID: ${response.body.data.id}`);\n  });\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://qauto.forstudy.space/api/cars\n\nThe response we received from your web server was:\n\n  > 401: Unauthorized\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://qauto.forstudy.space/api/cars\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.15.0 Chrome/118.0.5993.159 Electron/27.3.10 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 127\n}\nBody: {\"carBrandId\":4,\"carModelId\":18,\"initialMileage\":6666,\"mileage\":6666,\"brand\":\"Porsche\",\"model\":\"Panamera\",\"logo\":\"porsche.png\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 401 - Unauthorized\nHeaders: {\n  \"server\": \"nginx/1.18.0 (Ubuntu)\",\n  \"date\": \"Mon, 11 Nov 2024 19:09:40 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"48\",\n  \"connection\": \"keep-alive\",\n  \"x-powered-by\": \"Express\",\n  \"vary\": \"Origin\",\n  \"access-control-allow-credentials\": \"true\",\n  \"etag\": \"W/\\\"30-MRwVSV0s00XrGBnsx1u6V7Jalm8\\\"\"\n}\nBody: {\n  \"status\": \"error\",\n  \"message\": \"Not authenticated\"\n}\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://qauto.forstudy.space/api/cars\n\nThe response we received from your web server was:\n\n  > 401: Unauthorized\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://qauto.forstudy.space/api/cars\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.15.0 Chrome/118.0.5993.159 Electron/27.3.10 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 127\n}\nBody: {\"carBrandId\":4,\"carModelId\":18,\"initialMileage\":6666,\"mileage\":6666,\"brand\":\"Porsche\",\"model\":\"Panamera\",\"logo\":\"porsche.png\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 401 - Unauthorized\nHeaders: {\n  \"server\": \"nginx/1.18.0 (Ubuntu)\",\n  \"date\": \"Mon, 11 Nov 2024 19:09:40 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"48\",\n  \"connection\": \"keep-alive\",\n  \"x-powered-by\": \"Express\",\n  \"vary\": \"Origin\",\n  \"access-control-allow-credentials\": \"true\",\n  \"etag\": \"W/\\\"30-MRwVSV0s00XrGBnsx1u6V7Jalm8\\\"\"\n}\nBody: {\n  \"status\": \"error\",\n  \"message\": \"Not authenticated\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:50724/__cypress/runner/cypress_runner.js:132919:72)\n    at tryCatcher (http://localhost:50724/__cypress/runner/cypress_runner.js:1807:23)\n    at Promise._settlePromiseFromHandler (http://localhost:50724/__cypress/runner/cypress_runner.js:1519:31)\n    at Promise._settlePromise (http://localhost:50724/__cypress/runner/cypress_runner.js:1576:18)\n    at Promise._settlePromise0 (http://localhost:50724/__cypress/runner/cypress_runner.js:1621:10)\n    at Promise._settlePromises (http://localhost:50724/__cypress/runner/cypress_runner.js:1701:18)\n    at _drainQueueStep (http://localhost:50724/__cypress/runner/cypress_runner.js:2407:12)\n    at _drainQueue (http://localhost:50724/__cypress/runner/cypress_runner.js:2400:9)\n    at Async._drainQueues (http://localhost:50724/__cypress/runner/cypress_runner.js:2416:5)\n    at Async.drainQueues (http://localhost:50724/__cypress/runner/cypress_runner.js:2286:14)\nFrom Your Spec Code:\n    at eval (webpack://cypress-project-1/./cypress/e2e/API/pluginApiTests.cy.js:73:15)\nat Array.forEach (<anonymous>)\n    at Context.eval (webpack://cypress-project-1/./cypress/e2e/API/pluginApiTests.cy.js:72:13)",
+                "diff": null
+              },
+              "uuid": "dc9caecb-5605-4c2c-9e31-ae8e9f168110",
+              "parentUUID": "56be92b5-fb0f-405d-904d-e805bc81324d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "886d467d-b521-4de8-96cb-560111b9ae5c"
+          ],
+          "failures": [
+            "dc9caecb-5605-4c2c-9e31-ae8e9f168110"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 919,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

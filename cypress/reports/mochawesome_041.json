@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-11-11T19:09:57.757Z",
+    "end": "2024-11-11T19:10:01.150Z",
+    "duration": 3393,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ca6a32a2-3978-428e-ae08-5412b4333b04",
+      "title": "",
+      "fullFile": "cypress/e2e/practice/intercept.cy.js",
+      "file": "cypress/e2e/practice/intercept.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "447b47b0-4944-40b3-8ca0-41aa1fdfa5f0",
+          "title": "Login",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "API Tests for Cars",
+              "fullTitle": "Login API Tests for Cars",
+              "timedOut": null,
+              "duration": 2275,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://guest:welcome2qauto@qauto.forstudy.space/');\ncy.intercept('GET', '**/cars', req => {\n  req.reply(res => {\n    if (value) {\n      res.body = _fakecars.fakeCars;\n    }\n  });\n});\ncy.intercept('GET', '**/cars', _fakecars.fakeCars);\ncy.contains('button', 'Sign In').click();\ncy.get('input[name=\"email\"]').type('viktoriacuskina@gmail.com');\ncy.get('input[name=\"password\"]').type('Test123456789', {\n  sensitive: true\n});\ncy.contains('button', 'Login').click();",
+              "err": {},
+              "uuid": "983074cc-0867-40fc-bd83-e0b063239c14",
+              "parentUUID": "447b47b0-4944-40b3-8ca0-41aa1fdfa5f0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "983074cc-0867-40fc-bd83-e0b063239c14"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2275,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
